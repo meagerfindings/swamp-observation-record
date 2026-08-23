@@ -1,0 +1,82 @@
+{
+  "extension": "@mgreten/observation-record",
+  "version": "2026.08.23.1",
+  "reviewedAt": "2026-08-23T20:59:06Z",
+  "dimensions": [
+    {
+      "id": "credentials-secrets",
+      "verdict": "pass",
+      "note": "No credentials are accepted; source identity and personal data are explicitly excluded."
+    },
+    {
+      "id": "logging-quality",
+      "verdict": "pass",
+      "note": "retain logs entry and either first persistence or idempotent completion without evidence content."
+    },
+    {
+      "id": "error-handling",
+      "verdict": "pass",
+      "note": "Strict parsing, chronology checks, hashing, and replay validation all complete before the sole write."
+    },
+    {
+      "id": "testing-completeness",
+      "verdict": "pass",
+      "note": "Tests cover strict rejection, deterministic identity, chronology, exact replay, tamper rejection, persistence, privacy, and zero authority."
+    },
+    {
+      "id": "idempotency-resilience",
+      "verdict": "pass",
+      "note": "Content-derived identity makes exact retries no-ops; conflicting or tampered stored state fails closed."
+    },
+    {
+      "id": "api-contracts",
+      "verdict": "na",
+      "note": "No external API calls."
+    },
+    {
+      "id": "resource-management",
+      "verdict": "na",
+      "note": "No external resources, files, subprocesses, or connections."
+    },
+    {
+      "id": "published-surface-hygiene",
+      "verdict": "pass",
+      "note": "Documentation and fixtures are synthetic and contain no infrastructure or personal identifiers."
+    },
+    {
+      "id": "schema-strictness",
+      "verdict": "pass",
+      "note": "Input, provenance, freshness, privacy, persisted record, and authority objects are strict and bounded."
+    },
+    {
+      "id": "lifetime-gc",
+      "verdict": "pass",
+      "note": "Immutable observations declare infinite lifetime and garbageCollection 50."
+    },
+    {
+      "id": "crud-completeness",
+      "verdict": "na",
+      "note": "This is intentionally an append-only persistence record, not a CRUD lifecycle model."
+    },
+    {
+      "id": "preflight-checks",
+      "verdict": "na",
+      "note": "The sole mutation is local persistence after complete validation and replay checks."
+    },
+    {
+      "id": "instance-names",
+      "verdict": "pass",
+      "note": "The sole writer uses the canonical SHA-256 observation identity as its instance name."
+    },
+    {
+      "id": "data-access",
+      "verdict": "pass",
+      "note": "Stored state is read only through readResource before persistence."
+    },
+    {
+      "id": "version-upgrades",
+      "verdict": "na",
+      "note": "Initial standalone publication; the registry has no prior published version."
+    }
+  ]
+}
